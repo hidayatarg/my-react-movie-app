@@ -5,11 +5,22 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // creating store
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+
+// thunk middleware
+import thunk from 'redux-thunk';
+
 import rootReducer from './reducers/rootReducer';
 
+import { compositeWithDevTools } from 'redux-devtools-extension';
+
+
 const store = createStore(
-    rootReducer
+    rootReducer,
+    // applying thunk middleware
+    compositeWithDevTools(
+        applyMiddleware(thunk)
+    )
 );
 
 ReactDOM.render(<App />, document.getElementById('root'));
