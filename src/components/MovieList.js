@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-const MovieList = (props) => {
-    const emptyMessge = (
+const MovieList = ({movies}) => {
+    const emptyMessage = (
         <p>There are no Movies Yet.</p>
     );
 
@@ -12,7 +12,7 @@ const MovieList = (props) => {
         <div>
         {/* Movies List */}
         {
-            props.movies.length ===0 ? emptyMessge : movieList
+            movies.length === 0 ? emptyMessage : movieList
         }
             
         </div>

@@ -6,7 +6,7 @@ import MovieList from '../MovieList';
 class MoviesPage extends Component {
     static propTypes = {
         // will be an arry and it will be required
-        movies: PropTypes.object.isRequired
+        movies: PropTypes.array.isRequired
     }
     render() {
         console.log('Props: ', this.props);
