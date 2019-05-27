@@ -12,23 +12,27 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers/rootReducer';
 
-import { compositeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { Provider } from 'react-redux';
+
+import { BrowserRouter } from 'react-router-dom';
 
 
 const store = createStore(
     rootReducer,
     // applying thunk middleware
-    compositeWithDevTools(
+    composeWithDevTools(
         applyMiddleware(thunk)
     )
 );
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
+    <BrowserRouter>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </BrowserRouter>,
     document.getElementById('root')
 );
 
